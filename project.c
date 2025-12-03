@@ -8,12 +8,14 @@ struct details
     int age;
     char disease[50];
 };
+
 struct doctor
 {
     int id;
     char name[50];
     char dept[100];
 };
+
 struct Appoint
 {
     int id;
@@ -21,12 +23,14 @@ struct Appoint
     int doctorid;
     char date[20];
 };
+
 struct medicine
 {
     int id;
-    char name;
+    char name[50];
     int quantity;
 };
+
 int count =0;
 void add( struct details d[])
 {
@@ -42,6 +46,7 @@ void add( struct details d[])
     count++;
     printf("Patient added succesfully\n");
 }
+
 void display(struct details d[])
 {
     printf("\n------Patient list--------\n");
@@ -62,6 +67,7 @@ void display(struct details d[])
         }
     }
 }
+
 void search(struct details d[])
 {
     int id,found=0;
@@ -86,6 +92,7 @@ void search(struct details d[])
         printf("Patient not found");
     }
 }
+
 void delete(struct details d[])
 {
     int id,found=0;
@@ -110,6 +117,7 @@ void delete(struct details d[])
         printf("Patient not found");
     }
 }
+
 int dcount=0;
 void adddoc(struct doctor doc[])
 {
@@ -123,6 +131,7 @@ void adddoc(struct doctor doc[])
     dcount++;
     printf("Doctor added successfully\n");
 }
+
 void view(struct doctor doc[])
 {
     printf("\n------Doctor list--------\n");
@@ -142,6 +151,7 @@ void view(struct doctor doc[])
         }
     }
 }
+
 int acount=0;
 void appoint(struct Appoint a[])
 {
@@ -157,6 +167,7 @@ void appoint(struct Appoint a[])
     acount++;
     printf("Appointment added succesfully\n");
 }
+
 void viewappoint(struct Appoint a[])
 {
     printf("\n---------Appointment list-----------\n");
@@ -174,6 +185,7 @@ void viewappoint(struct Appoint a[])
         printf("Date:%s\n",a[i].date);
     }
 }
+
 void cancel(struct Appoint a[])
 {
     int id,found=0;
@@ -198,6 +210,7 @@ void cancel(struct Appoint a[])
         printf("Appointment not found\n");
     }
 }
+
 int mcount=0;
 void addmed(struct medicine m[])
 {
@@ -205,12 +218,13 @@ void addmed(struct medicine m[])
     printf("Enter medicine id:");
     scanf("%d",&m[mcount].id);
     printf("Enter Medicine name:");
-    scanf(" %s",&m[mcount].name);
+    scanf("%s",&m[mcount].name); 
     printf("Enter quantity:");
     scanf("%d",&m[mcount].quantity);
     mcount++;
     printf("Medicine added succesfully");
 }
+
 void viewmed(struct medicine m[])
 {
     printf("\n--------Medicine stock---------\n");
@@ -222,10 +236,12 @@ void viewmed(struct medicine m[])
     for(int i=0;i<mcount;i++)
     {
         printf("Medicine id:%d\n",m[i].id);
-        printf("Name:%c\n",m[i].name);
+        printf("Name:%s\n",m[i].name);
         printf("Quantity:%d\n",m[i].quantity);
     }
+
 }
+
 void update(struct medicine m[])
 {
     int id,q,found=0;
@@ -253,6 +269,7 @@ void update(struct medicine m[])
         printf("Medicine not found\n");
     }
 }
+
 int main()
 {
     struct details d[100];
@@ -261,7 +278,8 @@ int main()
     struct medicine m[100];
     int choice;
     printf("-------------Hospital Management System------------\n");
-    while(1)
+
+    while (1)
     {
         printf("\n---------Main menu---------\n");
         printf("1.Add patient\n");
@@ -280,6 +298,7 @@ int main()
 
         printf("Enter your choice:");
         scanf("%d",&choice);
+
         switch(choice)
         {
             case 1: add(d); break;
